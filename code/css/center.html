@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>垂直水平居中</title>
+    <style>
+        .center-one{
+            text-align: center;
+            /* width: 400px; */
+            background: #ccc;
+            display: table;
+            margin: 0 auto;
+        }
+        .parent{
+            position: relative;
+        }
+        .center-two{
+            position: absolute; /*参照物是父容器*/
+            left: 50%;
+            transform: translateX(-50%); /*百分比是参照物本身*/
+            background: #ccc;
+        }
+        .parent-three{
+            display: flex;
+            justify-content: center;
+        }
+        .center-four{
+            display: table-cell;
+            vertical-align: middle;
+            background-color: #ccc;
+            width: 200px;
+            height: 150px;
+        }
+
+        .parent-five{
+            background: #ccc;
+            width: 500px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .parent-six{
+            position: relative;
+            background-color: #ccc;
+            width: 600px;
+            height: 200px;
+        }
+        .center-six{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            left: 50%;
+            margin-left: -100px;
+            background-color: red;
+        }
+        .center-seven{
+            background: #ccc;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 0;
+            right: 0; /*左右水平居中*/
+            top: 0;
+            bottom: 0;/*上下左右水平垂直居中*/
+            margin: auto;
+        }
+        .center-eight{
+            background: #ccc;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <!--方法五水平居中 需要设置高度的 -->
+    <!-- <div class="parent-five">
+        <div class="center-five">
+            dfdfdg dsqdv
+        </div>
+    </div> -->
+
+    <!--方法六水平居中 父元素和子元素都有宽高 子元素相对父元素水平居中-->
+    <!-- <div class="parent-six">
+        <div class="center-six">
+            ewewewe
+        </div>
+    </div> -->
+
+    <!-- 方法七水平||水平垂直居中 ie6,7不兼容 -->
+    <!-- <div class="center-seven">
+        水平居中 不兼容ie6,7
+    </div> -->
+
+    <!-- 方法八 水平垂直居中 css3不支持ie8及以下 -->
+    <div class="center-eight">
+        水平居中8
+    </div>
+
+    <!--方法一 水平居中   需要设置宽度或者设置display: table;，否则会拉伸成父元素宽度-->
+    <!-- <div class="center-one">
+        qqqqqqqqq
+    </div> -->
+
+    <!--方法二水平居中  absolute再看下~-->
+    <!-- <div class="parent">
+        <div class="center-two">
+            124
+        </div>
+    </div> -->
+
+    <!--方法三水平居中 flex-->
+    <!-- <div class="parent-three">
+        <div class="center-three">
+            12344
+        </div>
+    </div> -->
+
+    <!--方法四垂直居中 高度不同的元素都垂直居中-->
+    <!-- <div class="center-four">
+        wewewe
+    </div> -->
+</body>
+</html>
