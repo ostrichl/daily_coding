@@ -33,14 +33,9 @@ var find = function (obj, str) {
 }
 
 var obj = {
-    a: {
-        b:{
-            a: 1
-        },
-        m: 1
-    }
+    a: 1
 }
-var str = 'a.m'
+var str = 'a'
 
 console.log(find(obj, str))
 
@@ -66,24 +61,40 @@ console.log(findSimple(obj, str))
 /*2*/
 /*改为递归*/
 //还有问题，待修复
-function findD(obj, str) {
-    var arr = str.split('.'),
-        newArr = [],
-        flag = false;
+// function findD(obj, str) {
+//     var arr = str.split('.'),
+//         newArr = [],
+//         flag = false;
 
-    for(var i = 0; i < arr.length; i++){
-        for(var name in obj) {
-            if(arr[i] == obj[name]){
-                newStr = arr.splice(0, 1).join('.');
-                flag = true;
-                return findD(obj[name], newStr);
-            }else{
-                flag = false;
-                return undefined;
-            }
-        }
+//     for(var i = 0; i < arr.length; i++){
+//         for(var name in obj) {
+//             if(arr[i] == obj[name]){
+//                 newStr = arr.splice(0, 1).join('.');
+//                 flag = true;
+//                 return findD(obj[name], newStr);
+//             }else{
+//                 flag = false;
+//                 return undefined;
+//             }
+//         }
        
+//     }
+// }
+
+function findD(obj, path) {
+    if (!path) {
+      return obj;
     }
+    if (!obj) {
+      return undefined;
+    }
+    for(var name in obj) {
+      var current = path.indexOf(".") > 0 ? path.substring(0, path.indexOf(".")) : path;
+      if (name == current) {
+        return findD(obj[current], path.indexOf(".") > 0 ? path.substring(path.indexOf(".")+1) : undefined);
+      }
+    }
+    return undefined
 }
 
 console.log(findD(obj, str));
