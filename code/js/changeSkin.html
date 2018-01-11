@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>changeSkin</title>
+    <style>
+        .skin-one{
+            background-color: #233232;
+        }
+        .skin-two{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;" class="js-change">换红色</a>
+    <div>
+        <table class="skin-one js-table">
+            <thead>
+                <tr>
+                    <th>表头1</th>
+                    <th>表头2</th>
+                    <th>表头3</th>
+                    <th>表头四</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1行1列</td>
+                    <td>1行2列</td>
+                    <td>1行3列</td>
+                    <td>1行4列</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script>
+        $('.js-change').on('click', function() {
+            $('.js-table').attr('class', 'skin-two')
+        })
+    </script>
+</body>
+</html>
