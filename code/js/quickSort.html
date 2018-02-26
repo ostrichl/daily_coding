@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>快速排序</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var quickSort = function(arr) {
+            console.log(arr)
+            if(arr.length <= 1) {
+                return arr;
+            }
+            var pivotIndex = Math.floor(arr.length/2);
+
+            var pivot = arr.splice(pivotIndex, 1)[0];
+            console.log(pivot)
+            var left = [],
+                right = [];
+            for(var i = 0; i < arr.length; i++) {
+                if(arr[i] < pivot) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+
+            return quickSort(left).concat([pivot], quickSort(right));
+        }
+
+        quickSort([1,56,21,19,78])
+    </script>
+</body>
+</html>
